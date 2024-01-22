@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Shooter</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        width: 100%;
+        overflow: hidden;
+        background: url("space.jpg");
+        background-size: cover;
+      }
+
+      #head {
+        height: 10vh;
+
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      #score {
+        opacity: 0.7;
+        font-size: 3em;
+        color: white;
+      }
+
+      #restartBtn {
+        margin: 2vh 0 0 5vh;
+        height: 7vh;
+        background: #e74c3c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+
+      #restartBtn:hover {
+        background: #c0392b;
+        transform: scale(1.05);
+      }
+
+      #life {
+        margin: 2vh 0;
+        font-size: 2em;
+        opacity: 0.7;
+        color: white;
+      }
+
+      /********************************************************************************/
+      #buttons {
+        height: 20vh;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      #buttons button {
+        height: 15vh;
+        width: 40vh;
+        margin: 0 2vh;
+        background: linear-gradient(to bottom, #28044d, #36012f);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+
+      #buttons button:hover {
+        transform: scale(1.05);
+      }
+
+      /************************************************************************/
+      #board {
+        position: relative;
+        height: 70vh;
+        overflow: hidden;
+        width: 300px;
+        box-sizing: border-box;
+        border: 2px solid white;
+        background-color: black;
+        margin: 10px auto;
+        /*width: 500px;*/
+      }
+      #rocket {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: url("logo.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        z-index: 6;
+      }
+
+      .bullets {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        width: 30px;
+        height: 25px;
+        background: url("bullet2.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .rocksP {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        background: url("rock1.jfif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 5;
+      }
+
+      .rocksN {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        background: url("rock2.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin:10px;
+      }
+
+      /*double tap zoom problem*/
+      #moveLeftBtn,#moveRightBtn, #shootBtn,#rocket {
+        touch-action: manipulation;
+      }
+
+      #moveLeftBtn,#moveRightBtn,#shootBtn,#rocket {
+      user-select: none;
+     }
+
+
+    </style>
+    <script src="js2.js" defer></script>
+  </head>
+  <body>
+    <div id="head">
+      <div id="score">0</div>
+      <div>
+        <button id="restartBtn">Restart</button>
+      </div>
+      <div id="life">life : 3</div>
+    </div>
+    <div id="board">
+      <div class="rocks rocksP rocksN"></div>
+      <div id="rocket"></div>
+    </div>
+    <div id="buttons">
+      <button id="moveLeftBtn">Left</button>
+      <button id="shootBtn">Shoot</button>
+      <button id="moveRightBtn">Right</button>
+    </div>
+  </body>
+</html>
